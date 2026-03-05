@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="si" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodeLanka IT — Web, Mobile, Cloud & Cyber සේවාවන්</title>
+  <meta name="description" content="CodeLanka IT: Web වෙබ් අඩවි, Mobile ඇප්ස්, Cloud/DevOps සහ Cybersecurity — ශ්‍රී ලංකාවේ ව්‍යාපාරයට ගැලපෙන, විශ්වාසනීය IT විසඳුම්. Quote එකකට අදම සම්බන්ධවන්න." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CodeLanka IT — Web, Mobile, Cloud & Cyber">
+  <meta property="og:description" content="ශ්‍රී ලංකාවේ SME සිට Enterprise දක්වා නිවැරදි IT විසඳුම්. Web, Mobile, Cloud/DevOps, Cybersecurity, Consulting.">
+  <meta property="og:url" content="https://yourdomain.lk">
+  <meta property="og:image" content="https://picsum.photos/1200/630?random=66">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CodeLanka IT — Web, Mobile, Cloud & Cyber">
+  <meta name="twitter:description" content="Performance, Security, Reliability — එකම තට්ටුවක.">
+  <meta name="twitter:image" content="https://picsum.photos/1200/630?random=66">
+
+  <!-- Favicon (inline SVG placeholder) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='52' height='52' rx='12' fill='%230f172a'/%3E%3Cpath d='M18 34l8 8 20-20' stroke='%2322d3ee' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --surface:#f8fafc;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --primary:#0f172a;
+      --accent:#22d3ee;
+      --accent-600:#06b6d4;
+      --shadow:0 8px 28px rgba(2,8,23,.08);
+      --radius:14px;
+    }
+    [data-theme="dark"]{
+      --bg:#0b1220;
+      --surface:#0f172a;
+      --text:#e2e8f0;
+      --muted:#94a3b8;
+      --border:#1f2937;
+      --primary:#0f172a;
+      --accent:#22d3ee;
+      --accent-600:#67e8f9;
+      --shadow:0 10px 34px rgba(0,0,0,.4);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans Sinhala", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin-inline:auto;padding-inline:16px}
+    .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip-link{position:absolute;left:-9999px;top:auto}
+    .skip-link:focus{left:16px;top:10px;background:var(--accent);color:#06303a;padding:8px 12px;border-radius:10px;z-index:999}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.7);
+      backdrop-filter:saturate(1.1) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    [data-theme="dark"] header{background:rgba(9,14,26,.55)}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px}
+    .brand svg{width:28px;height:28px}
+    nav ul{display:flex;gap:10px;list-style:none;margin:0;padding:0}
+    nav a{
+      padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:700;outline:2px solid transparent;outline-offset:2px
+    }
+    nav a:hover, nav a.active{background:rgba(34,211,238,.14);color:var(--text)}
+    .right-actions{display:flex;align-items:center;gap:10px}
+    .icon-btn{
+      display:inline-grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow);cursor:pointer;transition:transform .2s ease
+    }
+    .icon-btn:hover{transform:translateY(-2px)}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:9px 14px;border-radius:12px;box-shadow:var(--shadow);font-weight:800
+    }
+    .btn.primary{background:var(--accent);border-color:transparent;color:#032b33}
+    .menu-btn{display:none}
+
+    /* Sections */
+    section{padding:48px 0}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    h1,h2,h3{letter-spacing:-.02em}
+    h1{font-size:clamp(28px,4.2vw,44px);line-height:1.15;margin:0 0 8px;font-weight:900}
+    h2{font-size:clamp(22px,3vw,30px);margin:0 0 8px;font-weight:900}
+    h3{margin:8px 0 6px;font-size:18px}
+    .sub{color:var(--muted);margin:0 0 14px}
+    .grid{display:grid;gap:16px}
+    .grid.auto{grid-template-columns:repeat(auto-fit, minmax(240px,1fr))}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:center;padding:56px 0 24px}
+    .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .hero .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .badge{font-size:12px;padding:6px 9px;border-radius:999px;background:rgba(34,211,238,.12);border:1px dashed rgba(34,211,238,.4)}
+    .art{
+      border:1px solid var(--border);border-radius:18px;background:var(--surface);box-shadow:var(--shadow);padding:10px
+    }
+
+    /* Cards */
+    .card{
+      background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:transform .2s ease,border-color .2s ease
+    }
+    .card:hover{transform:translateY(-4px);border-color:rgba(34,211,238,.5)}
+    .svc-icon{width:36px;height:36px;color:var(--accent)}
+    .proj img{border-radius:12px}
+    .proj .meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px;color:var(--muted);font-size:14px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+    .kpi{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px;text-align:center}
+    .kpi strong{font-size:22px;display:block}
+    blockquote{margin:0;padding:14px 14px;border-left:4px solid var(--accent);background:var(--surface);border-radius:10px}
+
+    /* Blog */
+    .blog-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
+    .blog .meta{color:var(--muted);font-size:14px;margin-top:6px}
+
+    /* Contact */
+    .two-col{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+    .contact-form label{font-weight:700;font-size:14px}
+    .contact-form input,.contact-form textarea{
+      width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text)
+    }
+    .contact-form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .map-ph{
+      height:240px;border:1px dashed var(--border);border-radius:12px;display:grid;place-items:center;color:var(--muted);background:
+        linear-gradient(135deg, rgba(34,211,238,.08), transparent 60%)
+    }
+
+    /* QR */
+    .qr-box{display:grid;place-items:center;gap:10px;padding:12px;border:1px dashed var(--border);border-radius:12px;background:var(--bg)}
+    .qr-box img{border-radius:10px;border:1px solid var(--border);background:#fff;box-shadow:var(--shadow)}
+    .qr-links a{color:var(--accent);font-weight:800}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted)}
+    .social{display:flex;gap:10px}
+    .social a{display:inline-grid;place-items:center;width:36px;height:36px;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+
+    /* Reveal + Utilities */
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease, transform .5s ease}
+    .reveal.show{opacity:1;transform:none}
+    .center{text-align:center}
+
+    /* Back to top */
+    #toTop{
+      position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:12px;border:1px solid var(--border);
+      background:var(--surface);display:grid;place-items:center;box-shadow:var(--shadow);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;z-index:40
+    }
+    #toTop.show{opacity:1;pointer-events:auto}
+    #toTop:hover{transform:translateY(-2px)}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      .kpis{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 760px){
+      nav ul{display:none;position:absolute;left:0;right:0;top:64px;background:var(--bg);border-bottom:1px solid var(--border);padding:10px 16px;flex-direction:column;gap:6px}
+      nav ul.open{display:flex}
+      .menu-btn{display:inline-grid}
+      .contact-form .row{grid-template-columns:1fr}
+    }
+
+    /* Focus states */
+    :where(a,button,.icon-btn,.btn,input,textarea,select):focus-visible{
+      outline:2px dashed var(--accent);outline-offset:2px
+    }
+  </style>
+</head>
+<body>
+  <a href="#home" class="skip-link">අන්තර්ගතයට යන්න</a>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="CodeLanka IT - මුල් පිටුව">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="6" width="52" height="52" rx="12" fill="currentColor"/><path d="M18 34l8 8 20-20" stroke="#22d3ee" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>CodeLanka IT</span>
+      </a>
+
+      <nav aria-label="ප්‍රධාන මෙනුව">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList" aria-label="Menu toggle">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <ul id="navList">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="right-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Dark/Light mode">
+          <svg id="sunIcon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 4V2m0 20v-2M4 12H2m20 0h-2M5 5l-1.5-1.5M20.5 20.5L19 19M19 5l1.5-1.5M4.5 20.5L6 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg id="moonIcon" width="20" height="20" viewBox="0 0 24 24" class="sr-only" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="#contact" aria-label="Quote ගන්න">Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="container hero">
+      <div>
+        <h1>ඔබගේ ව්‍යාපාරය ඩිජිටල් වේගයකට — Web, Mobile, Cloud එකටම</h1>
+        <p class="sub">අපි Web අඩවි, මොබයිල් ඇප්ස්, Cloud/DevOps සහ Cybersecurity විසඳුම් — වේගවත්, ආරක්ෂිත, ව්‍යාපාරමය ප්‍රතිඵල කේන්ද්‍රිතව. ශ්‍රී ලංකාවේ SME/Startup සිට Enterprise දක්වා.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Get a Quote</a>
+          <a class="btn" href="#projects">See Projects</a>
+        </div>
+        <div class="badges" aria-label="තාක්ෂණ ගොනු">
+          <span class="badge">React / Vue</span>
+          <span class="badge">Node / Django</span>
+          <span class="badge">AWS / GCP</span>
+          <span class="badge">Docker / K8s</span>
+        </div>
+      </div>
+      <div class="art reveal" aria-hidden="true">
+        <!-- SVG Illustration Placeholder -->
+        <svg viewBox="0 0 560 360" width="100%" height="100%" role="img" aria-label="උදාහරණ රූපය">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#22d3ee"/>
+              <stop offset="1" stop-color="#0ea5e9"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="1" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#1e293b"/>
+              <stop offset="1" stop-color="#0f172a"/>
+            </linearGradient>
+            <clipPath id="r">
+              <rect x="0" y="0" width="560" height="360" rx="18"></rect>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#r)">
+            <rect width="560" height="360" fill="url(#g2)"></rect>
+            <circle cx="120" cy="80" r="120" fill="url(#g1)" opacity=".25"></circle>
+            <circle cx="500" cy="40" r="90" fill="url(#g1)" opacity=".18"></circle>
+            <circle cx="380" cy="300" r="140" fill="url(#g1)" opacity=".22"></circle>
+            <g opacity=".7" transform="translate(60,90)">
+              <rect x="0" y="0" width="220" height="130" rx="14" fill="#0b1220" stroke="#22d3ee" opacity=".7"/>
+              <rect x="16" y="24" width="188" height="12" rx="6" fill="#22d3ee"/>
+              <rect x="16" y="48" width="120" height="10" rx="5" fill="#67e8f9"/>
+              <rect x="16" y="70" width="150" height="10" rx="5" fill="#67e8f9" opacity=".6"/>
+              <rect x="16" y="92" width="90" height="10" rx="5" fill="#67e8f9" opacity=".4"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="container">
+      <div class="section-head">
+        <div>
+          <h2>අපේ සේවාවන්</h2>
+          <p class="sub">නිර්මාණය + සංවර්ධනය + ආරක්ෂාව + පවත්වාගෙන යාම — එකම පාරිභෝගික අත්දැකීමක්.</p>
+        </div>
+      </div>
+
+      <div class="grid auto">
+        <article class="card reveal">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <h3>Websites & Web Apps</h3>
+              <p class="sub">SEO-මිත, වේගවත්, ප්‍රතිචාරශීලී වෙබ් අඩවි/ඇප් — CMS, E‑commerce, Bookings.</p>
+              <div class="badges"><span class="badge">Next.js</span><span class="badge">Laravel</span><span class="badge">WordPress</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3" stroke="currentColor" stroke-width="2" fill="none"/><path d="M9 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <h3>Mobile Apps</h3>
+              <p class="sub">iOS/Android සඳහා පරිශීලකමිත, offline‑ready push notifications සහිත ඇප්.</p>
+              <div class="badges"><span class="badge">Flutter</span><span class="badge">React Native</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4 4 4 0 0 0-4-4 6 6 0 1 0-12 0 4 4 0 0 0-2 4z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            <div>
+              <h3>Cloud & DevOps</h3>
+              <p class="sub">Scalable infra, CI/CD, Docker/K8s, Observability — වියදම් පාලනය සමඟ.</p>
+              <div class="badges"><span class="badge">AWS</span><span class="badge">GCP</span><span class="badge">Terraform</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-8 10-8 10S4 17 4 12V6l8-4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <h3>Cybersecurity</h3>
+              <p class="sub">Vulnerability scan, hardening, backup & DR, awareness — දත්ත ආරක්ෂාව මුල් තැනට.</p>
+              <div class="badges"><span class="badge">WAF</span><span class="badge">SOC</span><span class="badge">Zero‑Trust</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <h3>IT Consulting</h3>
+              <p class="sub">Roadmaps, architecture reviews, cost optimization — vendor‑neutral උපදෙස්.</p>
+              <div class="badges"><span class="badge">Audit</span><span class="badge">Strategy</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container">
+      <h2>තේරූම් ව්‍යාපෘති</h2>
+      <p class="sub">ප්‍රතිඵල පෙන්වන කතා. ක්‍රියාත්මකව — කාර්යක්ෂමව — ආරක්ෂිතව.</p>
+
+      <div class="grid auto">
+        <article class="card proj reveal">
+          <img src="https://picsum.photos/seed/ecomlk/560/340" alt="Retail E‑commerce වෙබ් අඩවිය" width="560" height="340">
+          <div class="meta">
+            <strong>Retail E‑commerce</strong>
+            <span>Colombo</span>
+          </div>
+          <div class="badges"><span class="badge">Next.js</span><span class="badge">Stripe</span><span class="badge">Vercel</span></div>
+          <div style="margin-top:10px"><a class="btn" href="#contact" aria-label="Retail E‑commerce විස්තර">View details</a></div>
+        </article>
+
+        <article class="card proj reveal">
+          <img src="https://picsum.photos/seed/healthlk/560/340" alt="Health Appointment App" width="560" height="340">
+          <div class="meta">
+            <strong>Health Appointment App</strong>
+            <span>Kandy</span>
+          </div>
+          <div class="badges"><span class="badge">Flutter</span><span class="badge">Firebase</span></div>
+          <div style="margin-top:10px"><a class="btn" href="#contact" aria-label="Health App විස්තර">View details</a></div>
+        </article>
+
+        <article class="card proj reveal">
+          <img src="https://picsum.photos/seed/logidash/560/340" alt="Logistics Dashboard" width="560" height="340">
+          <div class="meta">
+            <strong>Logistics Dashboard</strong>
+            <span>Galle</span>
+          </div>
+          <div class="badges"><span class="badge">React</span><span class="badge">Node</span><span class="badge">AWS</span></div>
+          <div style="margin-top:10px"><a class="btn" href="#contact" aria-label="Logistics Dashboard විස්තර">View details</a></div>
+        </article>
+
+        <article class="card proj reveal">
+          <img src="https://picsum.photos/seed/finserv/560/340" alt="FinTech Client Portal" width="560" height="340">
+          <div class="meta">
+            <strong>FinTech Client Portal</strong>
+            <span>Jaffna</span>
+          </div>
+          <div class="badges"><span class="badge">Django</span><span class="badge">PostgreSQL</span><span class="badge">Docker</span></div>
+          <div style="margin-top:10px"><a class="btn" href="#contact" aria-label="FinTech Portal විස්තර">View details</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container">
+      <h2>අප ගැන</h2>
+      <p class="sub">තත්ත්‍වය: Transparency + Quality + Support — විශ්වාසය ගොඩනැගීම අපේ මුල් වැඩ.</p>
+
+      <div class="two-col">
+        <div class="card reveal">
+          <h3>අපේ වටිනාකම්</h3>
+          <ul>
+            <li><strong>Transparency:</strong> පැහැදිලි quotes, දිනයන්, deliverables.</li>
+            <li><strong>Quality first:</strong> testing, code review, security‑by‑design.</li>
+            <li><strong>Support:</strong> launch පසු SLA + continuous improvement.</li>
+          </ul>
+          <div class="kpis">
+            <div class="kpi"><strong>60+</strong><span class="sub">Web ව්‍යාපෘති</span></div>
+            <div class="kpi"><strong>22+</strong><span class="sub">Mobile ඇප්ස්</span></div>
+            <div class="kpi"><strong>99%</strong><span class="sub">Uptime රාමුව</span></div>
+            <div class="kpi"><strong>7yrs</strong><span class="sub">Industry</span></div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3>අපේ කණ්ඩායම</h3>
+          <p class="sub">Full‑stack devs, cloud engineers, UI/UX designers, QA, PMs — Sri Lanka / Remote‑first.</p>
+          <div class="badges"><span class="badge">Agile</span><span class="badge">Scrum</span><span class="badge">ISO‑ready</span></div>
+          <img src="https://picsum.photos/seed/teamlk/720/360" alt="කණ්ඩායම් ඡායාරූපයක් (උදාහරණයක්)" style="margin-top:12px;border-radius:12px">
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="container">
+      <h2>Testimonials</h2>
+      <p class="sub">අපගේ සේවය ගැන ගනුදෙනුකරුවන් කියන කතා.</p>
+      <div class="grid auto">
+        <article class="card reveal">
+          <blockquote>
+            “8 සති තුළ MVP launch. Lighthouse scores 95+; SEO traffic දෙගුණයක්. අපි සතුටුයි!”
+          </blockquote>
+          <p class="sub" style="margin:8px 0 0">— රුවන් පෙරේරා, CEO, ABC Retail</p>
+        </article>
+        <article class="card reveal">
+          <blockquote>
+            “Mobile app එක offline වීමදීත් sync flawless. Support team එක ඉතා ප්‍රතිචාරශීලී.”
+          </blockquote>
+          <p class="sub" style="margin:8px 0 0">— හසිනී සමරසිංහ, Ops Lead, LankaFresh</p>
+        </article>
+        <article class="card reveal">
+          <blockquote>
+            “Cloud cost 30%+ පහලට. CI/CD නිසා release cycle සතියකට වාර 3ක් වෙලා.”
+          </blockquote>
+          <p class="sub" style="margin:8px 0 0">— කවිඳු පියසේන, CTO, K‑Tech</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="container blog">
+      <h2>බ්ලොග්</h2>
+      <p class="sub">ශ්‍රී ලංකාවේ tech හඬ — ඉගෙන ගන්න, අලුත් දේ හදන්න.</p>
+      <div class="blog-grid">
+        <article class="card reveal">
+          <img src="https://picsum.photos/seed/host/560/300" alt="Hosting තේරීම සම්බන්ධ රූපයක්" width="560" height="300">
+          <h3>Hosting තේරීම: LKR අරමුණකට ගැලපෙන 5 ක්</h3>
+          <p class="meta">2026‑03‑01 • DevOps • 6 min</p>
+          <p class="sub">Uptime, bandwidth, support, hidden costs — local vs global providers.</p>
+        </article>
+        <article class="card reveal">
+          <img src="https://picsum.photos/seed/cyber/560/300" alt="Cybersecurity සම්බන්ධ රූපයක්" width="560" height="300">
+          <h3>SME Cyber Basics: Passwords තාමත් ප්‍රශ්නයේ</h3>
+          <p class="meta">2026‑02‑10 • Cyber • 5 min</p>
+          <p class="sub">MFA, phishing drills, backups — සරල දේවල්, විප්ලවීය ප්‍රතිඵල.</p>
+        </article>
+        <article class="card reveal">
+          <img src="https://picsum.photos/seed/finops/560/300" alt="Cloud FinOps රූපයක්" width="560" height="300">
+          <h3>Cloud FinOps: “මුදල් ගලායන කරා” අවහිර කරමු</h3>
+          <p class="meta">2026‑01‑22 • Cloud • 7 min</p>
+          <p class="sub">Budgets, rightsizing, spot instances, monitoring KPIs.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+      <h2>සම්බන්ධවෙමු</h2>
+      <p class="sub">ඔබගේ අවශ්‍යතාව අපට කියන්න. design සිට launch දක්වා — අපි පැතිර සිටින්නෙමු.</p>
+
+      <div class="two-col">
+        <div class="card reveal">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="row">
+              <div>
+                <label for="name">නම</label>
+                <input id="name" name="name" type="text" placeholder="ඔයාගේ නම" required autocomplete="name" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+              </div>
+            </div>
+            <div class="row" style="margin-top:12px">
+              <div>
+                <label for="phone">දුරකථන</label>
+                <input id="phone" name="phone" type="tel" placeholder="+94 7X XXX XXXX" pattern="^(\+94|0|94)\d{9}$" />
+              </div>
+              <div>
+                <label for="topic">විෂයය</label>
+                <input id="topic" name="topic" type="text" placeholder="E‑commerce / Mobile app / Cloud audit ..." required />
+              </div>
+            </div>
+            <div style="margin-top:12px">
+              <label for="msg">නිශ්චිත අවශ්‍යතා</label>
+              <textarea id="msg" name="message" rows="5" placeholder="Budget range, deadlines, references ..." required></textarea>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+              <button class="btn primary" type="submit">Message යවන්න</button>
+              <button class="btn" type="reset">Clear</button>
+            </div>
+            <p id="formNote" class="sub" role="status" style="margin-top:10px"></p>
+          </form>
+        </div>
+
+        <div class="card reveal">
+          <h3>අපගේ විස්තර</h3>
+          <p class="sub">
+            Email: <a href="mailto:hello@yourdomain.lk">hello@yourdomain.lk</a><br>
+            Phone: <a href="tel:+9477XXXXXXX">+94 77 XXX XXXX</a><br>
+            Location: Colombo 03, Sri Lanka
+          </p>
+
+          <div class="map-ph" role="img" aria-label="සිතියම placeholder">Map Placeholder</div>
+
+          <!-- QR (requested) -->
+          <div class="qr-box" style="margin-top:12px">
+            <strong>QR කේතය scan කරලා වෙබ් අඩවියට පිවිසෙන්න</strong>
+            <img id="qrImg" alt="QR කේතය: CodeLanka IT වෙබ් ලිපිනය" width="220" height="220" />
+            <div class="qr-links"><a id="dlSvg" download="codelanka-qr.svg">SVG බාගන්න</a> · <a id="dlPng" download="codelanka-qr.png">PNG බාගන්න</a></div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <a class="btn" href="#projects">Case Studies</a>
+            <a class="btn" href="#services">Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <p>© <span id="year"></span> CodeLanka IT. All rights reserved.</p>
+      <nav aria-label="Footer quick links">
+        <a href="#home">Home</a> · <a href="#services">Services</a> · <a href="#projects">Projects</a> · <a href="#about">About</a> · <a href="#blog">Blog</a> · <a href="#contact">Contact</a>
+      </nav>
+      <div class="social" aria-label="සමාජ සන්නිවේදන">
+        <a href="#" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 6.5A1.94 1.94 0 1 1 5 4.56 1.94 1.94 0 0 1 6.94 6.5zM5.5 8.5h2.9V20H5.5zM10 8.5h2.78v1.58h.04a3.05 3.05 0 0 1 2.74-1.51c2.93 0 3.47 1.93 3.47 4.44V20h-2.9v-4.9c0-1.17-.02-2.67-1.63-2.67s-1.88 1.27-1.88 2.58V20H10z"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 22v-8h3l1-3h-4V8c0-.9.3-1.5 1.6-1.5H17V3.2C16.5 3.1 15.6 3 14.6 3 12.2 3 10.5 4.5 10.5 7v4H8v3h2.5v8z"/></svg>
+        </a>
+        <a href="#" aria-label="X">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.53 3H20l-7 8.06L20.5 21H14l-5-6-5 6H1.5l7.79-9L2.5 3H9l4.5 5.4z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="ඉහළට යන්න">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l-7 7h4v7h6v-7h4z" fill="currentColor"/></svg>
+  </button>
+
+  <script>
+    // වර්ෂය
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const navList = document.getElementById('navList');
+    menuBtn?.addEventListener('click', ()=>{
+      const open = navList.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Theme
+    const themeBtn = document.getElementById('themeBtn');
+    const html = document.documentElement;
+    function applyTheme(t){
+      html.setAttribute('data-theme', t);
+      document.getElementById('sunIcon').classList.toggle('sr-only', t==='dark');
+      document.getElementById('moonIcon').classList.toggle('sr-only', t!=='dark');
+      localStorage.setItem('theme', t);
+    }
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved ? saved : (prefersDark ? 'dark' : 'light'));
+    themeBtn?.addEventListener('click', ()=>{
+      applyTheme(html.getAttribute('data-theme')==='dark' ? 'light' : 'dark');
+    });
+
+    // Scroll spy
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const links = [...document.querySelectorAll('nav a')];
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const id = e.target.id;
+          links.forEach(a=>{
+            const active = a.getAttribute('href')==='#'+id;
+            a.classList.toggle('active', active);
+            a.setAttribute('aria-current', active ? 'page' : 'false');
+          });
+        }
+      });
+    },{rootMargin:'-50% 0px -45% 0px', threshold:0});
+    sections.forEach(s=>spy.observe(s));
+
+    // Reveal on view
+    const revealObs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); revealObs.unobserve(e.target); }
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+    // Back to top
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', ()=>{
+      toTop.classList.toggle('show', window.scrollY > 460);
+    });
+    toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Contact form (demo only)
+    const form = document.getElementById('contactForm');
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const note = document.getElementById('formNote');
+      if(!form.checkValidity()){
+        note.textContent = 'කරුණාකර අවශ්‍ය ප්‍රදේශ සම්පූර්ණ කරන්න.';
+        note.style.color = 'tomato';
+        return;
+      }
+      note.textContent = 'ගොඩක් ස්තුතියි! (Demo) — අපි ඉක්මණින් ඔබව සම්බන්ධ කරගන්නෙමු.';
+      note.style.color = 'inherit';
+      form.reset();
+    });
+
+    // QR Generator (online API භාවිතයෙන්)
+    // මෙතැන ඔබ encode කරන්න ඕන දත්ත/URL දාන්න (උදාහරණය: 'https://yourdomain.lk' | 'tel:+9477XXXXXXX' | 'mailto:hello@yourdomain.lk')
+    const qrData = 'https://yourdomain.lk';
+    const size = 512;
+    const base = 'https://api.qrserver.com/v1/create-qr-code/';
+    const data = encodeURIComponent(qrData);
+    const svgUrl = `${base}?size=${size}x${size}&format=svg&data=${data}`;
+    const pngUrl = `${base}?size=${size}x${size}&format=png&data=${data}`;
+
+    const qrImg = document.getElementById('qrImg');
+    const dlSvg = document.getElementById('dlSvg');
+    const dlPng = document.getElementById('dlPng');
+    if(qrImg && dlSvg && dlPng){
+      qrImg.src = pngUrl;
+      dlSvg.href = svgUrl;
+      dlPng.href = pngUrl;
+    }
+
+    // Optionally එකවරම ප්‍රවේශ වත්මන් පිටුව encode කරන්න:
+    // const d = encodeURIComponent(window.location.href);
+    // qrImg.src = `${base}?size=${size}x${size}&format=png&data=${d}`;
+    // dlSvg.href = `${base}?size=${size}x${size}&format=svg&data=${d}`;
+    // dlPng.href = `${base}?size=${size}x${size}&format=png&data=${d}`;
+  </script>
+</body>
+</html>
